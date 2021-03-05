@@ -49,7 +49,8 @@
       float:left;
       padding: 43px;
       display:block;
-      margin-bottom: 40px solid rgb(0, 0, 0);
+      border-bottom: 1px solid rgb(0, 0, 0);
+      
   }
   .bill{
     float:left;
@@ -60,14 +61,14 @@
 
   .footer {
     background-color: #f1f1f1;
-    height:5%;
+    height:10%;
     text-align: center;
   }
 
   .button {
-      float: left;
-      display: block;
-    background-color: #044d77; /* Green */
+    float: left;
+    display: block;
+    background-color: #044d77;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -78,17 +79,27 @@
     cursor: pointer;
   }
 
-  .button1 {width: 100%;}
+  .button1 {width: 98%;}
 
   .bill d{
-display: block;
-float:left;
+    display: block;
+        float:left;
       overflow: auto;
-      width:100%;
+      width:98%;
       height: 70px;
       border:1px solid black;
       padding: 16px;
       text-align: center;
       font-weight: bold;
+      margin:3px;
 
+  }
+  .bill r{
+    display: block;
+    float:left;
+    overflow: auto;
+    width:98%;
+    height:30px;
+    margin: 0px;
+    text-align: center;
   }
