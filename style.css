@@ -1,14 +1,15 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    
   }
-.header{
+header{
+    padding-top: 20px;
     overflow: hidden;
     background-color:rgb(221, 240, 247);
-    height:10%;
+    height:70px;
 }
 
-.header p {
+.headerItem{
     font-size: larger;
     float:left;
     display:block;
@@ -17,34 +18,52 @@
     padding-left: 10px;
     font-family: cursive;
 }
+.icon{
+    width: 30px;
+    height: 30px;
+}
 
-.Offers{
+.searchBar{
+  height:20px;
+  width: 1000px;
+}
+
+.offers{
     background-color:snow;
     text-align: center;
 }
-.content {
+.content{
     background-color:white;
-    height:80%;
+    height:700px;
     margin-left: 90px;
     margin-right: 90px;
   }
-
+.contentBasket{
+  height: 5px;
+  padding-left: 20px;
+  width: 1500px;
+}
+.contentHome{
+  font-weight: lighter;
+  padding-bottom: 5px;
+  font-style: italic;
+}
   .items{
       float:left;
-      width: 65%;
-      height:90%;
+      width: 850px;
+      height:900px;
       overflow: scroll;
   }
   span {
     display: block;
   }
-  .items a{
+  .itemDescription{
       display:block;
       padding: 10px;
-      font-weight: bold;
+      width:100%;
   }
 
-  h{
+  .descriptionValue{
       height: 180px;
       float:left;
       padding: 43px;
@@ -53,16 +72,23 @@
       
   }
   .bill{
+    display:block;
     float:left;
-    width: 35%;
-    height:90%;
+    width:350px;
+    height:900px;
     overflow: auto;
 }
-
-  .footer {
+.itemImage{
+  width:100px;
+  height: 120px;
+  vertical-align: middle;
+}
+  footer {
     background-color: #f1f1f1;
-    height:10%;
-    text-align: center;
+    height:70px;
+    display: inline-block;
+    text-align:center;
+    width: 1500px;
   }
 
   .button {
@@ -77,11 +103,16 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width:98%;
   }
 
-  .button1 {width: 98%;}
+  .continueShopping{
+    background-color: white;
+    color: black;
+  }
 
-  .bill d{
+
+  .billItem{
     display: block;
         float:left;
       overflow: auto;
@@ -94,7 +125,7 @@
       margin:3px;
 
   }
-  .bill r{
+  .billReturnPolicy{
     display: block;
     float:left;
     overflow: auto;
@@ -102,4 +133,40 @@
     height:30px;
     margin: 0px;
     text-align: center;
+  }
+  .billAcceptedCard{
+    display: block;
+    float:left;
+    overflow: auto;
+    width:20%;
+    height:30px;
+    margin: 0px;
+  }
+  .cardImage{
+    width: 40px;
+    height: 30px;
+  }
+
+  .promoButton{
+    border:none;
+    width:10%;
+    float: left;
+    color:white;
+    background-color:#044d77;
+    height: 30px;
+  }
+
+  .promoInput{
+    border:none;
+    height: 30px;
+    width: 80%;
+    float: left;
+  }
+
+  .promo{
+    border:white;
+    background-color: rgb(223, 222, 222);
+    font-weight: lighter;
+    text-align: left;
+    height: 120px;
   }
