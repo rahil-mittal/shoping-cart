@@ -1,77 +1,127 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <div class="header"> 
-        <p><img src="cart.png" alt="logo" style="width: 30px;height: 30px;"></p>
-        <p>Shoping Cart</p>
-        <p><input type="text" id="search" value="search here" style="height: 30px;width: 1000px;padding-left: 30px;"></p>
-        <p><img src="icon.png" alt="logo2" style="width: 30px;height: 30px;"></p>
-        <p><img src="star.png" alt="logo3" style="width: 25px;height: 25px;"></p>
-        <p><img src="cart.png" alt="logo4" style="width: 30px;height: 30px;"></p>
-        
-    </div>
-    <div class="Offers">
+    <header> 
+        <div class="headerItem">
+            <div >
+                <img class ="icon" src="cart.png" alt="logo" >
+            </div>
+        </div>
+        <div class="headerItem">Shoping Cart</div>
+        <div class="headerItem">
+            <div>
+                <input class="searchBar" type="text" id="search" value="" > 
+            </div>
+        </div>
+        <div class="headerItem">
+            <div>
+                <img class="icon" src="icon.png" alt="profile" >
+            </div>
+        </div>
+        <div class="headerItem">
+            <div>
+                <img class="icon" src="star.png" alt="wishlist" >
+            </div>
+        </div>
+        <div class="headerItem">
+            <div>
+                <img class="icon" src="cart.png" alt="cart" >
+            </div>
+        </div>
+    </header>
+    <div class="offers">
         SALE UPTO 40% ON JACKETS!
     </div>
     <div class="content">
-        <p style="font-weight: bold;height: 5%;padding-left: 20px;"><span style="font-weight: lighter;padding-bottom: 5px;font-style: italic;">Home/cart</span><span>YOUR BASKET (2)</span></p>
-        <hr style="position: relative;"></hr>
-            <p class="items">
-                <a>
-                <h><img src="bag.jpeg" alt="bag" style="width:100px;height: 120px;vertical-align: middle;"></h>
-                <h><span>COMMAND SKATE BACKPACK</span><span style="font-weight: lighter;">One size</span><span style="font-weight: lighter;">$39.99</span></h>
-                <h><select name="quantity" id="number" >
-                    <option value="1">  1  </option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select></h>
-                <h>$39.99</h>
-                </a>
+        <div class="conentBasket">
+            <span class="contentHome">Home/cart</span>
+            <span><b>YOUR BASKET (2)</b></span>
+        </div>
+        <hr></hr>
+
+        <div class="items">
+            <div class="itemDescription">
+                <div class="descriptionValue">
+                    <img class ="itemImage"src="bag.jpeg" alt="bag" >
+                </div>
+                <div class="descriptionValue">
+                    <span><b>COMMAND SKATE BACKPACK</b></span><span>One size</span><span>$39.99</span>
+                </div>
+                <div class="descriptionValue">
+                    <select name="quantity" id="number" >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="descriptionValue">
+                    <b>$39.99</b>
+                </div>
+            </div>
                 
-                <a>
-                <h><img src="tshirt.jpeg" alt="bag" style="width:100px;height: 120px;vertical-align: middle;"></h>
-                <h><span>ROUND NECK CREW T-SHIRT</span><span style="font-weight: lighter;">S size</span><span style="font-weight: lighter;">$29.99</span></h>
-                <h><select name="quantity" id="number" >
-                    <option value="1">  1  </option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select></h>
-                <h>$29.99</h>
-                </a>
+            <div class="itemDescription">
+                <div class="descriptionValue">
+                    <img class="itemImage" src="tshirt.jpeg" alt="bag">
+                </div>
+                <div class="descriptionValue">
+                    <span><b>ROUND NECK CREW T-SHIRT</b></span><span>S size</span><span>$29.99</span>
+                </div>
+                <div class="descriptionValue">
+                    <select name="quantity" id="number">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="descriptionValue">
+                    <b>$29.99</b>
+                </div>
+            </div>
 
-            </p>
-            <p class="bill">
-                <d>
-                    TOTAL COST=$69.98
-                </d>
-                <d style="border:white;background-color: rgb(223, 222, 222);font-weight: lighter;text-align: left;height: 120px;" >
-                   <b>ADD PROMOTIONAL CODE<br></b><br>
+        </div>
+            <div class="bill">
+                <div class="billItem">
+                    TOTAL COST  $69.98
+                </div>
+                <div class="billItem promo">
+                   <b>ADD PROMOTIONAL CODE</b><br>
                     One Code per Order<br>
-                    <input type="text" id="promo"  style="height: 30px;width: 80%;float: left;">
-                    <button style="width:10%;float: left;color:white;background-color:#044d77;height: 30px;">></button><br>
+                    <input class="promoInput" type="text" id="promo">
+                    <button class="promoButton">></button><br>
 
 
-                </d>
-                <button class="button button1">PROCEED TO CHECKOUT</button><br>
-                <button class="button button1" style="background-color: white;color: black;">CONTINUE SHOPPING</button>
-                <r>
+                </div>
+                <button class="button">PROCEED TO CHECKOUT</button><br>
+                <button class="button continueShopping">CONTINUE SHOPPING</button>
+                <div class="billReturnPolicy">
                     30 days return policy
-                </r>
-                <r style="width:20%"><img src="visa.png" alt="visa" style="width: 40px;height: 30px;"></r>
-                <r style="width:20%"><img src="american.png" alt="american" style="width: 40px;height: 30px;"></r>
-                <r style="width:20%"><img src="mastercard.png" alt="mastercard" style="width: 40px;height: 30px;"></r>
-                <r style="width:20%"><img src="paypal.png" alt="paypal" style="width: 40px;height: 30px;"></r>
-                <r style="width:20%"><img src="klarna.png" alt="klarna" style="width: 40px;height: 30px;"></r>
-            </p>
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage"src="visa.png" alt="visa" >
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage"src="american.png" alt="american" >
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage"src="mastercard.png" alt="mastercard" >
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage" src="paypal.png" alt="paypal" >
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage" src="klarna.png" alt="klarna" >
+                </div>
+            </div>
     </div>
     
-    <div class="footer">SUBSCRIBE TO OUR WEBSITE</div>
+    <footer>SUBSCRIBE TO OUR WEBSITE</footer>
 
     </body>
 </html>
