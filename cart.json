@@ -1,0 +1,14 @@
+ [
+	{
+        "id":0,
+        "name":"bagpack",
+        "price":39.99,
+        "quantity":0
+    },
+	{
+        "id":1,
+        "name":"tshirt",
+        "price":29.99,
+        "quantity":0
+    }
+]
