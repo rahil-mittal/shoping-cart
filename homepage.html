@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <script rel="json" src="cart.js"></script>
     <header> 
         <div class="headerItem">
             <div >
@@ -48,10 +49,18 @@
                     <img class ="itemImage"src="bag.jpeg" alt="bag" >
                 </div>
                 <div class="descriptionValue">
-                    <span><b>COMMAND SKATE BACKPACK</b></span><span>One size</span><span>$39.99</span>
+                    <span>
+                        <div id="title"value="COMMAND SKATE BACKPACK"><b>COMMAND SKATE BACKPACK</b></div>
+                    </span>
+                    <span>
+                        One size
+                    </span>
+                    <span>
+                        $39.99
+                    </span>
                 </div>
                 <div class="descriptionValue">
-                    <select name="quantity" id="number" >
+                    <select name="quantity" id="quantity1">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -60,7 +69,12 @@
                     </select>
                 </div>
                 <div class="descriptionValue">
-                    <b>$39.99</b>
+                    <div>
+                        $<div id="displayPrice1"></div>
+                    </div>
+                </div>
+                <div class="descriptionValue">
+                    <input type="button" onclick="getPrice()" value="Add">
                 </div>
             </div>
                 
@@ -68,11 +82,11 @@
                 <div class="descriptionValue">
                     <img class="itemImage" src="tshirt.jpeg" alt="bag">
                 </div>
-                <div class="descriptionValue">
+                <div class="descriptionValue" >
                     <span><b>ROUND NECK CREW T-SHIRT</b></span><span>S size</span><span>$29.99</span>
                 </div>
                 <div class="descriptionValue">
-                    <select name="quantity" id="number">
+                    <select name="quantity" id="quantity2">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -81,14 +95,19 @@
                   </select>
                 </div>
                 <div class="descriptionValue">
-                    <b>$29.99</b>
+                    <div>
+                        $<div id="displayPrice2"></div>
+                    </div>
+                </div>
+                <div class="descriptionValue">
+                    <input type="button" onclick="getPrice()" value="Add">
                 </div>
             </div>
 
         </div>
             <div class="bill">
                 <div class="billItem">
-                    TOTAL COST  $69.98
+                    TOTAL COST  <div id="displayTotal"></div>
                 </div>
                 <div class="billItem promo">
                    <b>ADD PROMOTIONAL CODE</b><br>
@@ -105,17 +124,13 @@
                 </div>
                 <div class="billAcceptedCard">
                     <img class="cardImage"src="visa.png" alt="visa" >
-                </div>
-                <div class="billAcceptedCard">
+                
                     <img class="cardImage"src="american.png" alt="american" >
-                </div>
-                <div class="billAcceptedCard">
+                
                     <img class="cardImage"src="mastercard.png" alt="mastercard" >
-                </div>
-                <div class="billAcceptedCard">
+                
                     <img class="cardImage" src="paypal.png" alt="paypal" >
-                </div>
-                <div class="billAcceptedCard">
+                
                     <img class="cardImage" src="klarna.png" alt="klarna" >
                 </div>
             </div>
