@@ -1,14 +1,18 @@
  [
 	{
         "id":0,
-        "name":"bagpack",
+        "image":"bag.jpeg",
+        "name":"COMMAND SKATE BACKPACK",
+        "size":"One Size",
         "price":39.99,
-        "quantity":0
+        "quantity":1
     },
 	{
         "id":1,
-        "name":"tshirt",
+        "image":"tshirt.jpeg",
+        "name":"ROUND NECK CREW T-SHIRT",
+        "size":"S Size",
         "price":29.99,
-        "quantity":0
+        "quantity":1
     }
 ]
