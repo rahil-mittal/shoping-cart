@@ -116,14 +116,16 @@ header{
 
   .billItem{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    
         float:left;
       overflow: auto;
       width:98%;
       height: 70px;
       border:1px solid black;
       padding: 16px;
-      text-align: center;
+      text-align:left;
       font-weight: bold;
       margin:3px;
 
@@ -175,3 +177,6 @@ header{
     text-align: left;
     height: 120px;
   }
+
+
+  
