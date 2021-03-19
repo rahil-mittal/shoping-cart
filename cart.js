@@ -1,6 +1,6 @@
 
 
-fetch('./data.json').then(response => {
+fetch('./cart.json').then(response => {
     return response.json();
   }).then(data => {
       buildCart(data),
@@ -10,9 +10,9 @@ fetch('./data.json').then(response => {
   });
 
 
-
+var q=[];
 function buildCart(data){
-    var q=[];
+    //var q=[];
     
     return function(){
     data.forEach(({id,image,name,size,price,quantity}) =>{
@@ -30,10 +30,10 @@ function buildCart(data){
         let details=createDetailsDiv(name,size,price);
 
         //Quant details
-        let quant=createQuantDiv(id,...q);
+        let quant=createQuantDiv(id);
         
         //Total Single item price
-        let TPrice=createTPriceDiv(id,price,...q);
+        let TPrice=createTPriceDiv(id,price);
 
         itemContainer.appendChild(imgdiv);
         itemContainer.appendChild(details);
@@ -42,7 +42,7 @@ function buildCart(data){
 
         document.getElementsByClassName("items")[0].appendChild(itemContainer);
 
-        displayNetDetails(data,...q);
+        displayNetDetails(data);
 
         document.getElementById("inc"+id).onclick=()=>{
             q[id]++;
@@ -59,7 +59,7 @@ function buildCart(data){
                 document.getElementById("show"+id).innerText=q[id];
                 document.getElementById("singleItem"+id).innerText='$'+(price*q[id]).toFixed(2);
                 data[id].quantity=q[id];
-                displayNetDetails(data,...q);
+                displayNetDetails(data);
             }
         }
             
@@ -102,7 +102,7 @@ function createDetailsDiv(name,size,price)
         return details;
 }
 
-function createQuantDiv(id,...q)
+function createQuantDiv(id)
 {
     let quant=document.createElement("div");
     quant.className="descriptionValue";
@@ -131,7 +131,7 @@ function createQuantDiv(id,...q)
     return quant;
 }
 
-function createTPriceDiv(id,price,...q)
+function createTPriceDiv(id,price)
 {
     let TPrice=document.createElement("div");
     TPrice.className="descriptionValue";
@@ -142,14 +142,8 @@ function createTPriceDiv(id,price,...q)
 }
 
 //To display net details
-function displayNetDetails(data,...q)
+function displayNetDetails(data)
 {
     document.getElementById("displayNetQuan").innerText=q[0]+q[1];
     document.getElementById("displayTotal").innerText='$'+(data[0].price*q[0]+data[1].price*q[1]).toFixed(2);
 }
-
-function checkout(){
-    
-    console.log(data);
-}
-
