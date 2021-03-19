@@ -11,9 +11,8 @@ fetch('./data.json').then(response => {
 
 
 
-var q=[];
 function buildCart(data){
-    //var q=[];
+    var q=[];
     
     return function(){
     data.forEach(({id,image,name,size,price,quantity}) =>{
@@ -31,10 +30,10 @@ function buildCart(data){
         let details=createDetailsDiv(name,size,price);
 
         //Quant details
-        let quant=createQuantDiv(id);
+        let quant=createQuantDiv(id,...q);
         
         //Total Single item price
-        let TPrice=createTPriceDiv(id,price);
+        let TPrice=createTPriceDiv(id,price,...q);
 
         itemContainer.appendChild(imgdiv);
         itemContainer.appendChild(details);
@@ -43,14 +42,14 @@ function buildCart(data){
 
         document.getElementsByClassName("items")[0].appendChild(itemContainer);
 
-        displayNetDetails(data);
+        displayNetDetails(data,...q);
 
         document.getElementById("inc"+id).onclick=()=>{
             q[id]++;
             document.getElementById("show"+id).innerText=q[id];
             document.getElementById("singleItem"+id).innerText='$'+(price*q[id]).toFixed(2);
             data[id].quantity=q[id];
-            displayNetDetails(data);
+            displayNetDetails(data,...q);
         }
 
         document.getElementById("dec"+id).onclick=()=>{
@@ -60,7 +59,7 @@ function buildCart(data){
                 document.getElementById("show"+id).innerText=q[id];
                 document.getElementById("singleItem"+id).innerText='$'+(price*q[id]).toFixed(2);
                 data[id].quantity=q[id];
-                displayNetDetails(data);
+                displayNetDetails(data,...q);
             }
         }
             
@@ -103,7 +102,7 @@ function createDetailsDiv(name,size,price)
         return details;
 }
 
-function createQuantDiv(id)
+function createQuantDiv(id,...q)
 {
     let quant=document.createElement("div");
     quant.className="descriptionValue";
@@ -132,7 +131,7 @@ function createQuantDiv(id)
     return quant;
 }
 
-function createTPriceDiv(id,price)
+function createTPriceDiv(id,price,...q)
 {
     let TPrice=document.createElement("div");
     TPrice.className="descriptionValue";
@@ -143,7 +142,7 @@ function createTPriceDiv(id,price)
 }
 
 //To display net details
-function displayNetDetails(data)
+function displayNetDetails(data,...q)
 {
     document.getElementById("displayNetQuan").innerText=q[0]+q[1];
     document.getElementById("displayTotal").innerText='$'+(data[0].price*q[0]+data[1].price*q[1]).toFixed(2);
