@@ -21,20 +21,23 @@ var cartView={
                 //Total Single item price
                 let TPrice=this.createTPriceDiv(id,price,...q);
         
+                let remove=this.remove();
+
                 itemContainer.appendChild(imgdiv);
                 itemContainer.appendChild(details);
                 itemContainer.appendChild(quant);
                 itemContainer.appendChild(TPrice);
+                itemContainer.appendChild(remove);
         
                 document.getElementsByClassName("items")[0].appendChild(itemContainer);
         
                 this.displayNetDetails(data,...q);
 
                 document.getElementById("inc"+id).addEventListener('click',function(){
-                        cartController.increment(data,id,price,...q);
+                        cartController.increment(data,id,price);
                 });
                 document.getElementById("dec"+id).addEventListener('click',function(){
-                    cartController.decrement(data,id,price,...q);
+                    cartController.decrement(data,id,price);
             });
                 
         });
@@ -47,6 +50,13 @@ var cartView={
                     data[id].quantity=q[id];
                     this.displayNetDetails(data,...q);
            
+    },
+    remove:function(){
+        let remove=document.createElement("button");
+        remove.className="descriptionValue";
+        remove.innerText="Remove";
+
+        return remove;
     },
     createImgDiv:function(image){
         let imgdiv=document.createElement("div");
@@ -116,8 +126,18 @@ var cartView={
     },
 
     displayNetDetails:function(data,...q){
-        document.getElementById("displayNetQuan").innerText=q[0]+q[1];
-        document.getElementById("displayTotal").innerText='$'+(data[0].price*q[0]+data[1].price*q[1]).toFixed(2);
+        let netQuant=0;
+        for(let i=0;i<q.length;i++)
+        {
+            netQuant+=q[i];
+        }
+        let netPrice=0;
+        for(let i=0;i<data.length;i++)
+        {
+            netPrice+=(data[i].price*q[i]);
+        }
+        document.getElementById("displayNetQuan").innerText=netQuant;
+        document.getElementById("displayTotal").innerText='$'+netPrice.toFixed(2);
     }
 };
 

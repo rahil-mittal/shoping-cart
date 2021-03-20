@@ -5,11 +5,11 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body >
-        <script type="module" src="./../scripts/index.js"></script>
+       <script rel="data" src="./scripts/homepage.js"></script>
     <header> 
         <div class="headerItem">
             <div >
-                <img class ="icon" src="assets/cart.png" alt="logo" >
+                <img class ="icon" src="./assets/cart.png" alt="logo" >
             </div>
         </div>
         <div class="headerItem">Shopping Cart</div>
@@ -20,62 +20,27 @@
         </div>
         <div class="headerItem">
             <div>
-                <img class="icon" src="assets/icon.png" alt="profile" >
+                <img class="icon" src="./assets/icon.png" alt="profile" >
             </div>
         </div>
         <div class="headerItem">
             <div>
-                <img class="icon" src="assets/star.png" alt="wishlist" >
+                <img class="icon" src="./assets/star.png" alt="wishlist" ></img>
             </div>
         </div>
         <div class="headerItem">
-            <div>
-                <img class="icon" src="assets/cart.png" alt="cart" >
-            </div>
+            <a href="cart.html">
+                <img class="icon" src="./assets/cart.png" alt="cart" >
+            </a>
         </div>
     </header>
     <div class="offers">
         SALE UPTO 40% ON JACKETS!
     </div>
-    <div class="content">
-        <div class="conentBasket">
-            <span class="contentHome">Home/cart</span>
-            <span><b>YOUR BASKET (2)</b></span>
+    <div class="contentHomePage">
+        <div class="itemsHome">
+
         </div>
-        <hr></hr>
-
-        <div class="items">
-        </div>
-            <div class="bill">
-                <div class="billItem">
-                    <div>NET QUANTITY</div>    <div id="displayNetQuan"></div><br><br>
-                    <div>NET COST</div>  <div id="displayTotal"></div>
-                </div>
-                <div class="billItem promo">
-                   <b>ADD PROMOTIONAL CODE</b><br>
-                    One Code per Order<br>
-                    <input class="promoInput" type="text" id="promo">
-                    <button class="promoButton">></button><br>
-
-
-                </div>
-                <button class="button" id="checkOut" onclick=checkout()>PROCEED TO CHECKOUT</button><br>
-                <button class="button continueShopping">CONTINUE SHOPPING</button>
-                <div class="billReturnPolicy">
-                    30 days return policy
-                </div>
-                <div class="billAcceptedCard">
-                    <img class="cardImage"src="assets/visa.png" alt="visa" >
-                
-                    <img class="cardImage"src="assets/american.png" alt="american" >
-                
-                    <img class="cardImage"src="assets/mastercard.png" alt="mastercard" >
-                
-                    <img class="cardImage" src="assets/paypal.png" alt="paypal" >
-                
-                    <img class="cardImage" src="assets/klarna.png" alt="klarna" >
-                </div>
-            </div>
     </div>
     
     <footer>SUBSCRIBE TO OUR WEBSITE</footer>

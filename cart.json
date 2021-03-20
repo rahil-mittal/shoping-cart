@@ -1,7 +1,7 @@
- [
+[
 	{
         "id":0,
-        "image":"assets/bag.jpeg",
+        "image":"./assets/bag.jpeg",
         "name":"COMMAND SKATE BACKPACK",
         "size":"One Size",
         "price":39.99,
@@ -9,10 +9,26 @@
     },
 	{
         "id":1,
-        "image":"assets/tshirt.jpeg",
+        "image":"./assets/tshirt.jpeg",
         "name":"ROUND NECK CREW T-SHIRT",
         "size":"S Size",
+        "price":19.99,
+        "quantity":1
+    },
+    {
+        "id":2,
+        "image":"./assets/shoes.png",
+        "name":"SPORT SHOES",
+        "size":"UK8 Size",
         "price":29.99,
+        "quantity":1
+    },
+    {
+        "id":3,
+        "image":"./assets/jacket.jpg",
+        "name":"LEATHER JACKET",
+        "size":"S Size",
+        "price":59.99,
         "quantity":1
     }
 ]
