@@ -1,13 +1,19 @@
 
 
 import {cartController} from './controller.js';
+import { cartModel } from './model.js';
 var cartView={
     init:function(data){
         var q=cartController.getQuant();
+        if(data[0]==null)
+        {
+            document.getElementsByClassName("items").innerText="ADD ITEMS IN THE CART";
+        }
         data.forEach(({id,image,name,size,price,quantity}) =>{
-                q.push(quantity);
+                q[id]=quantity;
                 let itemContainer = document.createElement("div");
                 itemContainer.className="itemDescription";
+                itemContainer.id="itemContainer"+id;
         
                 //Img created
                 let imgdiv = this.createImgDiv(image);
@@ -21,7 +27,7 @@ var cartView={
                 //Total Single item price
                 let TPrice=this.createTPriceDiv(id,price,...q);
         
-                let remove=this.remove();
+                let remove=this.remove(id);
 
                 itemContainer.appendChild(imgdiv);
                 itemContainer.appendChild(details);
@@ -33,11 +39,16 @@ var cartView={
         
                 this.displayNetDetails(data,...q);
 
+                document.getElementById("remove"+id).addEventListener('click',function(){
+                    cartController.remove(id,data,price);
+                });
+
                 document.getElementById("inc"+id).addEventListener('click',function(){
                         cartController.increment(data,id,price);
                 });
                 document.getElementById("dec"+id).addEventListener('click',function(){
                     cartController.decrement(data,id,price);
+
             });
                 
         });
@@ -47,16 +58,17 @@ var cartView={
                 
                     document.getElementById("show"+id).innerText=q[id];
                     document.getElementById("singleItem"+id).innerText='$'+(price*q[id]).toFixed(2);
-                    data[id].quantity=q[id];
+                    //data[id].quantity=q[id];
                     this.displayNetDetails(data,...q);
            
     },
-    remove:function(){
-        let remove=document.createElement("button");
-        remove.className="descriptionValue";
-        remove.innerText="Remove";
+    remove:function(id){
+        let rem=document.createElement("button");
+        rem.className="descriptionValue";
+        rem.setAttribute("id","remove"+id);
+        rem.innerText="Remove";
 
-        return remove;
+        return rem;
     },
     createImgDiv:function(image){
         let imgdiv=document.createElement("div");
@@ -107,7 +119,7 @@ var cartView={
         show.innerText=q[id];
         quant.appendChild(show);
 
-    //Increment button created
+        //Increment button created
         let inc=document.createElement("button");
         let t2 = document.createTextNode("+");
         inc.setAttribute("id","inc"+id);
@@ -129,12 +141,18 @@ var cartView={
         let netQuant=0;
         for(let i=0;i<q.length;i++)
         {
-            netQuant+=q[i];
+            if(typeof q[i]=='number')
+            {
+                netQuant+=q[i];
+            }
         }
         let netPrice=0;
         for(let i=0;i<data.length;i++)
         {
-            netPrice+=(data[i].price*q[i]);
+            if(typeof q[data[i].id]=='number')
+            {
+                netPrice+=(q[data[i].id]*data[i].price);
+            }
         }
         document.getElementById("displayNetQuan").innerText=netQuant;
         document.getElementById("displayTotal").innerText='$'+netPrice.toFixed(2);

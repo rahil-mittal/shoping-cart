@@ -3,9 +3,8 @@ import {cartView} from './view.js';
 
 let cartController={
     init:function(){
-        cartModel.fetchData().then(data=>{
-            cartView.init(data);
-        });
+            cartView.init(cartModel.data);
+            //console.log(cartModel.data);
     },
     getQuant:function(){
         return cartModel.q;
@@ -22,6 +21,13 @@ let cartController={
             q[id]--;
             cartView.render(data,id,price,...q);
         }
+    },
+    remove:function(id,data,price){
+
+        var q=this.getQuant();
+        q[id]=0;
+        cartView.render(data,id,price,...q);
+        document.getElementById("itemContainer"+id).style.display="none";
     }
 };
 

@@ -1,62 +1,84 @@
 fetch('./../cart.json').then(response => {
     return response.json();
   }).then(data => {
-      buildPage(data)
+      controller.init(data);
   }).catch(err => {
       console.log(err);
   });
 
+  var model={
+        items:[],
+  };
 
-//var q=[];
-function buildPage(data){
+  localStorage.setItem("ItemsData",JSON.stringify(model.items));
+
+  var controller={
+
+    init:function(data){
+            view.viewHomePage(data);
+    },
+    addToCart:function(data){
+        if(!model.items.includes(data))
+        {
+            model.items.push(data);
+            localStorage.setItem("ItemsData",JSON.stringify(model.items));
+        }
+        console.log(model.items);
+    }
+  };
+  var view={
+    viewHomePage:function(data){
+        data.forEach((data) =>{
+            //var q=[];
+            //console.log(q);
     
-    var q=[];
-    return function(){
-    data.forEach(({id,image,name,size,price,quantity}) =>{
-        //var q=[];
-        q.push(quantity);
-        //console.log(q);
+            //Item Container created
+            let itemContainer = document.createElement("div");
+            itemContainer.className="itemDescriptionHome";
+    
+            //Img created
+            let imgdiv = this.createImgDiv(data.image);
+    
+            //Deatils created
+            let details =document.createElement("div");
+            details.innerText=data.name;
+    
+            //price 
+            let pricee=document.createElement("div");
+            pricee.innerText="$"+data.price;
+    
+            //Add to cart button
+            let add=document.createElement("button");
+            add.innerText="Add To Cart";
+            add.id="add"+data.id;
+    
+            itemContainer.appendChild(imgdiv);
+            itemContainer.appendChild(details);
+            itemContainer.appendChild(pricee);
+            itemContainer.appendChild(add);
+    
+            document.getElementsByClassName("contentHomePage")[0].appendChild(itemContainer);
 
-        //Item Container created
-        let itemContainer = document.createElement("div");
-        itemContainer.className="itemDescriptionHome";
-
-        //Img created
-        let imgdiv = createImgDiv(image);
-
-        //Deatils created
-        let details =document.createElement("div");
-        details.innerText=name;
-
-        //price 
-        let pricee=document.createElement("div");
-        pricee.innerText="$"+price;
-
-        let add=document.createElement("button");
-        add.innerText="Add To Cart";
-
-        itemContainer.appendChild(imgdiv);
-        itemContainer.appendChild(details);
-        itemContainer.appendChild(pricee);
-        itemContainer.appendChild(add);
-
-        document.getElementsByClassName("contentHomePage")[0].appendChild(itemContainer);
-            
-    })}();
-
-}
-
-function createImgDiv(image)
-{
-    let imgdiv=document.createElement("div");
+            add.addEventListener('click',function(){
+                controller.addToCart(data);
+            });
+                
+        });
+    },
+    
+    createImgDiv:function(image){  
+        let imgdiv=document.createElement("div");
         
-    let img = document.createElement("img");
-    img.className="itemImage";
-    img.src=image;
+        let img = document.createElement("img");
+        img.className="itemImage";
+        img.src=image;
 
-    imgdiv.appendChild(img);
+        imgdiv.appendChild(img);
 
-    return imgdiv;
-}
+        return imgdiv;
+    }
+  };
+
+
 
 

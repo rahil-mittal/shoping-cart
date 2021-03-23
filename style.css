@@ -74,6 +74,7 @@ span {
 }
 .itemDescription{
     display:flex;
+    justify-content: space-between;
     padding: 10px;
     width:100%;
 }
@@ -90,9 +91,10 @@ span {
     padding: 33px;
     display:flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    
     
 }
+
 .bill{
   display:flex;
   flex-flow: column;
