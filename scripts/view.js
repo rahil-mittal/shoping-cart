@@ -1,6 +1,7 @@
 
 import {cartController} from './controller.js';
 
+
 let cartView={
     init:function(data){
         let q=cartController.getQuant();
