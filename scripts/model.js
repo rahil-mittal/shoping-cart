@@ -1,4 +1,4 @@
-let cartModel = {
+const cartModel = {
     q:[],
     data: JSON.parse(localStorage.getItem("ItemsData"))
 };

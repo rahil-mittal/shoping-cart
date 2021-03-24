@@ -1,13 +1,12 @@
 
-
 import {cartController} from './controller.js';
-import { cartModel } from './model.js';
-var cartView={
+
+let cartView={
     init:function(data){
-        var q=cartController.getQuant();
-        if(data[0]==null)
+        let q=cartController.getQuant();
+        if(data.length==0)
         {
-            document.getElementsByClassName("items").innerText="ADD ITEMS IN THE CART";
+            document.getElementsByClassName("items")[0].innerText="ADD ITEMS IN THE CART";
         }
         data.forEach(({id,image,name,size,price,quantity}) =>{
                 q[id]=quantity;
