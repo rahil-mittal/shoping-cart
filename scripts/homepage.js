@@ -5,6 +5,18 @@ fetch('./../cart.json').then(response => {
   }).catch(err => {
       console.log(err);
   });
+  class App extends React.Component {
+    render(){
+      return(
+        <div className="app-content">
+          <h1>Hello, ninjas!</h1>
+          <p>Random number: { Math.random() * 10 }</p>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<App />, document.getElementsByClassName('contentHomePage')[0]);
 
   var model={
         items:[],
