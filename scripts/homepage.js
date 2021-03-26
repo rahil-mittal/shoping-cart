@@ -1,96 +1,62 @@
-fetch('./../cart.json').then(response => {
-    return response.json();
-  }).then(data => {
-      controller.init(data);
-  }).catch(err => {
-      console.log(err);
-  });
-  class App extends React.Component {
-    render(){
-      return(
-        <div className="app-content">
-          <h1>Hello, ninjas!</h1>
-          <p>Random number: { Math.random() * 10 }</p>
-        </div>
-      )
-    }
+fetch('./data.json').then(response => {
+  return response.json();
+}).then(data => {
+    buildPage(data)
+}).catch(err => {
+    console.log(err);
+});
+
+let items=[];
+localStorage.setItem("ItemsData",JSON.stringify(items));
+
+class ItemContainer extends React.Component{
+  
+  constructor(props)
+  {
+      super(props);
+      this.state={items:[]};
+      this.addToCart=this.addToCart.bind(this);
   }
+  addToCart(data){
+      if(!this.state.items.includes(data))
+      {
+          this.setState({items:items.push(data)});
+          localStorage.setItem("ItemsData",JSON.stringify(this.state.items));
+      }
+      console.log(this.state.items);
+  }
+  render(){      
+  return(
+      <div className="itemDescriptionHome">
+          <img className="itemImage"
+              src={this.props.data.image}
+          />
+          <div className="details">
+              {this.props.name}
+          </div>
+          <div className="price">
+              {this.props.data.price}
+          </div>
+          <input
+              type='button'
+              onClick={this.addToCart(this.props.data)}
+          />
+      </div>
+  );
+  }
+}
+//var q=[];
+function buildPage(data){
+  
+  let q=[];
+  data.forEach((data) =>{
+      q.push(data.quantity);
+      ReactDOM.render(
+      <ItemContainer  q={q}
+                      data={data}/>,
+      document.getElementsByClassName("contentHomePage")[0]);
+  });
 
-  ReactDOM.render(<App />, document.getElementsByClassName('contentHomePage')[0]);
-
-  var model={
-        items:[],
-  };
-
-  localStorage.setItem("ItemsData",JSON.stringify(model.items));
-
-  var controller={
-
-    init:function(data){
-            view.viewHomePage(data);
-    },
-    addToCart:function(data){
-        if(!model.items.includes(data))
-        {
-            model.items.push(data);
-            localStorage.setItem("ItemsData",JSON.stringify(model.items));
-        }
-        console.log(model.items);
-    }
-  };
-  var view={
-    viewHomePage:function(data){
-        data.forEach((data) =>{
-            //var q=[];
-            //console.log(q);
-    
-            //Item Container created
-            let itemContainer = document.createElement("div");
-            itemContainer.className="itemDescriptionHome";
-    
-            //Img created
-            let imgdiv = this.createImgDiv(data.image);
-    
-            //Deatils created
-            let details =document.createElement("div");
-            details.innerText=data.name;
-    
-            //price 
-            let pricee=document.createElement("div");
-            pricee.innerText="$"+data.price;
-    
-            //Add to cart button
-            let add=document.createElement("button");
-            add.innerText="Add To Cart";
-            add.id="add"+data.id;
-    
-            itemContainer.appendChild(imgdiv);
-            itemContainer.appendChild(details);
-            itemContainer.appendChild(pricee);
-            itemContainer.appendChild(add);
-    
-            document.getElementsByClassName("contentHomePage")[0].appendChild(itemContainer);
-
-            add.addEventListener('click',function(){
-                controller.addToCart(data);
-            });
-                
-        });
-    },
-    
-    createImgDiv:function(image){  
-        let imgdiv=document.createElement("div");
-        
-        let img = document.createElement("img");
-        img.className="itemImage";
-        img.src=image;
-
-        imgdiv.appendChild(img);
-
-        return imgdiv;
-    }
-  };
-
-
+};
 
 
