@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body >
+        <script type="module" src="./../scripts/index.js"></script>
+    <header> 
+        <div class="headerItem">
+            <div >
+                <img class ="icon" src="assets/cart.png" alt="logo" >
+            </div>
+        </div>
+        <div class="headerItem">Shopping Cart</div>
+        <div class="headerItem">
+            <div>
+                <input class="searchBar" type="text" id="search" value="" > 
+            </div>
+        </div>
+        <div class="headerItem">
+            <div>
+                <img class="icon" src="assets/icon.png" alt="profile" >
+            </div>
+        </div>
+        <div class="headerItem">
+            <div>
+                <img class="icon" src="assets/star.png" alt="wishlist" >
+            </div>
+        </div>
+        <div class="headerItem">
+            <a href="./cart.html">
+            <div>
+                <img class="icon" src="assets/cart.png" alt="cart" >
+            </div>
+            </a>
+        </div>
+    </header>
+    <div class="offers">
+        SALE UPTO 40% ON JACKETS!
+    </div>
+    <div class="content">
+        <div class="conentBasket">
+            <span class="contentHome">Home/cart</span>
+            <span><b>YOUR BASKET</b></span>
+        </div>
+        <hr></hr>
+
+        <div class="items">
+        </div>
+            <div class="bill">
+                <div class="billItem">
+                    <div>NET QUANTITY</div>    <div id="displayNetQuan"></div><br><br>
+                    <div>NET COST</div>  <div id="displayTotal"></div>
+                </div>
+                <div class="billItem promo">
+                   <b>ADD PROMOTIONAL CODE</b><br>
+                    One Code per Order<br>
+                    <input class="promoInput" type="text" id="promo">
+                    <button class="promoButton">></button><br>
+
+
+                </div>
+                <button class="button" id="checkOut" onclick=checkout()>PROCEED TO CHECKOUT</button><br>
+                <a href="./homepage.html"><button class="button continueShopping">CONTINUE SHOPPING</button></a>
+                <div class="billReturnPolicy">
+                    30 days return policy
+                </div>
+                <div class="billAcceptedCard">
+                    <img class="cardImage"src="assets/visa.png" alt="visa" >
+                
+                    <img class="cardImage"src="assets/american.png" alt="american" >
+                
+                    <img class="cardImage"src="assets/mastercard.png" alt="mastercard" >
+                
+                    <img class="cardImage" src="assets/paypal.png" alt="paypal" >
+                
+                    <img class="cardImage" src="assets/klarna.png" alt="klarna" >
+                </div>
+            </div>
+    </div>
+    
+    <footer>SUBSCRIBE TO OUR WEBSITE</footer>
+
+    </body>
+</html>
