@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body >
-        <script type="module" src="./../scripts/index.js"></script>
+
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <body>
     <header> 
         <div class="headerItem">
             <div >
@@ -46,11 +49,12 @@
         </div>
         <hr></hr>
 
-        <div class="items">
+        <div class="cartItems">
+        
         </div>
             <div class="bill">
                 <div class="billItem">
-                    <div>NET QUANTITY</div>    <div id="displayNetQuan"></div><br><br>
+                    <div>NET QUANTITY</div>    <div id="displayNetQuan"></div>
                     <div>NET COST</div>  <div id="displayTotal"></div>
                 </div>
                 <div class="billItem promo">
@@ -62,7 +66,7 @@
 
                 </div>
                 <button class="button" id="checkOut" onclick=checkout()>PROCEED TO CHECKOUT</button><br>
-                <a href="./homepage.html"><button class="button continueShopping">CONTINUE SHOPPING</button></a>
+                <a href="./index.html"><button class="button continueShopping">CONTINUE SHOPPING</button></a>
                 <div class="billReturnPolicy">
                     30 days return policy
                 </div>
@@ -81,6 +85,6 @@
     </div>
     
     <footer>SUBSCRIBE TO OUR WEBSITE</footer>
-
+    <script type="text/babel" src="./../src/cart-components/cartItemContainer.js"></script>
     </body>
 </html>

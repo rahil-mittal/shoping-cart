@@ -1,29 +1,20 @@
-import Button from './addToCart.js';
+import React, { Component } from 'react';
+import Button from './AddToCart.js';
 
-fetch('./cart.json').then(response => {
-  return response.json();
-}).then(data => {
-    buildPage(data)
-}).catch(err => {
-    console.log(err);
-});
+class ItemContainer extends Component{
 
-let items=[];
-localStorage.setItem("ItemsData",JSON.stringify(items));
-
-
-class ItemContainer extends React.Component{
-  
   constructor(props)
   {
-      super(props);
-      
+    super(props);
+    this.state={items:[]};
   }
+
   render(){ 
     const det=this.props.data.map((data)=>
         <div key={data.id} className="itemDescriptionHome">
             <img className="itemImage"
               src={data.image}
+              alt='itemImage'
             />
             <div className="details">
               {data.name}
@@ -31,7 +22,7 @@ class ItemContainer extends React.Component{
             <div className="price">
               ${data.price}
             </div>
-            <Button data={data}  />
+            <Button data={data} items={this.state.items} />
         </div>
         
     );     
@@ -42,12 +33,7 @@ class ItemContainer extends React.Component{
   );
   }
 }
-function buildPage(data){
-  
-      ReactDOM.render(
-      <ItemContainer data={data}/>,
-      document.getElementsByClassName("contentHomePage")[0]);
 
-};
+export default ItemContainer;
 
 

@@ -61,7 +61,6 @@ font-style: italic;
 }
 .contentHomePage{
   background-color:white;
-  height:700px;
   margin-top: 50px;
   margin-left: 90px;
   margin-right: 90px;
@@ -100,7 +99,7 @@ span {
   flex-flow: column;
   float:left;
   width:350px;
-  height:900px;
+  height:90px;
   overflow: auto;
 }
 .itemImage{
@@ -118,8 +117,8 @@ footer {
 }
 
 .button {
-  float: left;
-  display: flex;
+  
+ 
   background-color: #044d77;
   border: none;
   color: white;
@@ -128,7 +127,8 @@ footer {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  width:98%;
+  width:350px;
+  height: 70px;
 }
 
 .continueShopping{

@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        
     </head>
     <body >
-       <script type="text/babel" rel="data" src="./scripts/homepage.js"></script>
-       <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-       <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-       <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <header> 
         <div class="headerItem">
             <div >
+                <a href="/index.html">
                 <img class ="icon" src="./assets/cart.png" alt="logo" >
+                </a>
             </div>
         </div>
         <div class="headerItem">Shopping Cart</div>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="headerItem">
-            <a href="cart.html">
+            <a href="/cart">
                 <img class="icon" src="./assets/cart.png" alt="cart" >
             </a>
         </div>
@@ -46,10 +46,10 @@
 
         </div>
     </div>
-    <div id="add">
 
-    </div>
+
     <footer>SUBSCRIBE TO OUR WEBSITE</footer>
 
+    <script type="text/babel" rel="data" src="./src/homepage.js"></script>
     </body>
 </html>
