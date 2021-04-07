@@ -20,9 +20,9 @@ class SingleItemPrice extends Component
     render()
     {
         
-        console.log("rerender");
+        
         return(
-            <div id="itee">
+            <div >
              ${(this.props.itemData.price).toFixed(2)}
             </div>
         );

@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import Quantity from './Quantity.js';
-//import Remove from './Remove.js';
 import SingleItemPrice from './SingleItemPrice';
 
 import './../style.css';
@@ -11,7 +10,7 @@ class CartItemContainer extends Component{
     constructor(props)
     {
         super(props);
-        this.state={data:this.props.data,nq:this.props.data.length,np:0};
+        this.state={data:this.props.data,netQuant:this.props.data.length,netPrice:0};
         this.netChange=this.netChange.bind(this);
         this.removeFromCart=this.removeFromCart.bind(this);
     }
@@ -37,7 +36,7 @@ class CartItemContainer extends Component{
       this.state.data.forEach((item) => {
         totalP+=(item.price);});
 
-    this.setState({nq:totalQ,np:totalP});
+    this.setState({netQuant:totalQ,netPrice:totalP});
     }
     
     render(){
@@ -52,7 +51,7 @@ class CartItemContainer extends Component{
                 <b>{data.name}</b>
               </div>
               <div className="price">
-                ${(data.price).toFixed(2)}
+                ${(data.pricePerItem).toFixed(2)}
               </div>
               <div className="size">
                 {data.size}
@@ -84,11 +83,11 @@ class CartItemContainer extends Component{
                   <div className="billItem">
                       <div>NET QUANTITY</div>
                       <div id="displayNetQuan">
-                            {this.state.nq}
+                            {this.state.netQuant}
                       </div>
                       <div>NET COST</div>
                       <div id="displayTotal">
-                            ${(this.state.np).toFixed(2)}
+                            ${(this.state.netPrice).toFixed(2)}
                       </div>
                   </div>
                 </div>
